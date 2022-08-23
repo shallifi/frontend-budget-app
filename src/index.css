@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(https://cdna.artstation.com/p/assets/images/images/027/999/174/large/mark-montague-twitch-prime-bg-artstation-002.jpg?1593184363);
+  /* background-image: url(https://cdna.artstation.com/p/assets/images/images/027/999/174/large/mark-montague-twitch-prime-bg-artstation-002.jpg?1593184363); */
 }
 
 
@@ -69,4 +69,47 @@ label {
 /* end of code for login */
 
 
+/* header code */
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+header a,
+header button {
+  font-size: 1rem;
+  display: inline-block;
+  background-color: #fff8e7;
+  border: 1px solid salmon;
+  margin: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: salmon;
+  cursor: pointer;
+}
+
+main {
+  margin: 1rem;
+}
+
+/* goals */
+
+.goal_title {
+  height: 30px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  margin-bottom: 3rem;
+  font-weight: normal;
+
+}
+
+.goals_area {
+  margin-block-end: 2px;
+  display: flex;
+  align-items: baseline;
+}

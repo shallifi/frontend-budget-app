@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 function Auth() {
     const [username, setUsername] = useState('')
@@ -7,17 +8,18 @@ function Auth() {
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
    
     const [errors, setErrors] = useState([])
+    const history = useHistory()
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            name: username,
+            username,
             email,
             password,
             password_confirmation: passwordConfirmation
         }
        
-        fetch(`/users`,{
+        fetch('/users',{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify(user)
@@ -25,7 +27,9 @@ function Auth() {
         .then(res => res.json())
         .then(json => {
             if(json.errors) setErrors(Object.entries(json.errors))
-            else alert("Thanks for logging in, please refresh the page to check out the sessions magic :)")
+            else alert("Thank you for signing up")
+            history.push("/home")
+            
         })
     }
     return (
