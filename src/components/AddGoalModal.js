@@ -39,6 +39,7 @@ function AddGoalModal({show, handleClose}) {
      
     }
 
+    
 
 
   
@@ -51,13 +52,19 @@ function AddGoalModal({show, handleClose}) {
             <Modal.Body>
                 <Form.Group className='mb-3' controlId="name_of_goal">
                     <Form.Label>Name of Goal</Form.Label>
-                    <Form.Control type="text" 
+                    <Form.Control type="text"
+                    key={formData.id} 
+                    name="name_of_goal"
                     onChange={handleChange} 
                     value={formData.name_of_goal} required/>
                 </Form.Group>
                 <Form.Group className='mb-3' controlId="name">
                     <Form.Label>Goal Amount</Form.Label>
-                    <Form.Control type="number" required min={0} step={0.01}  />
+                    <Form.Control type="number"
+                    key={formData.id} 
+                    name="goal_amount"
+                    onChange={handleChange}
+                    value={formData.goal_amount} required min={0} step={0.01}  />
                 </Form.Group>
                 {/* putting button in div to be able to put at end  */}
                 <div className="d-flex justify-content-end">

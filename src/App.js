@@ -4,10 +4,12 @@ import Goals from "./components/Goals";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import AccountPage from "./components/AccountPage";
+import GoalCard from "./components/GoalCard";
 
 function App() {
   const [user, setUser] = useState(null)
-  // const [count, setCount] = useState(0);
+  const [goals, setGoals] = useState([]);
+ 
 
   useEffect(() => {
     // auto-login
@@ -18,7 +20,22 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch('/goals')
+      .then((res) => res.json())
+      .then((data) => setGoals(data));
+  }, [setGoals]);
   if (!user) return <Login onLogin={setUser} />;
+
+  console.log("in app",goals)
+
+  const onDeleteGoals = (deletedGoal) => {
+    const updatedGoals = goals.filter(
+      (goal) => goal.id !== deletedGoal.id
+    );
+    setGoals(updatedGoals);
+  };
+
 
   return (
     <BrowserRouter>
@@ -36,9 +53,13 @@ function App() {
           </Route>
 
           <Route path="/goals">
-              <Goals />
+              <Goals goals={goals} setGoals={setGoals} onDeleteGoals={onDeleteGoals}/>
             <h1> Goals (from the App components) </h1>
           </Route>
+          {/* <Route path="/goals/card">
+              <GoalCard goals={goals} setGoals={setGoals} onDeleteGoals={onDeleteGoals}/>
+            <h1> Goals (from the App components) </h1>
+          </Route> */}
 
           <Route path="/">
             <h1>Not on any page  </h1>

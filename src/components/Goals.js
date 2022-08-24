@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
+import { useForm } from '../hooks/useForm';
 import AddGoalModal from './AddGoalModal';
 import GoalCard from './GoalCard';
 
 
 
-function Goals() {
+
+function Goals({goals, setGoals, onDeleteGoals}) {
     // to show and hide modal by default it is not shown
     const [showAddGoalModal, setShowAddGoalModal] = useState(false)
     
+    const initialData={
+        name_of_goal:"",
+        goal_amount:""
+    };
     
+    const {formData, setFormData, } = useForm(initialData)
      //useEffect renders once per loading the page
-     useEffect(() => {
-        fetch('/goals')
-          .then((res) => res.json())
-          .then((data) => console.log(data));
-      }, []);
 
-
-
+    //  const renderGoalCardAmount = goals.map((goal) => (
+    //     <div> {goal.goal_amount}</div> 
+    //   ));
+      const renderGoalCard = goals.map((goal) => (
+        <GoalCard key={goal.id} goal={goal} /> 
+      ));
+ 
+    
   return (
     <>
         <Container className='my-5'>
@@ -34,16 +42,14 @@ function Goals() {
              gap: "1rem", alignItems: "flex-start"}}
              >
                 
-                {/* <GoalCard
-                key={goals.id}
-                name_of_goal={goal.name_of_goal}
-                goal_amount={goal.goal_amount}
-                 /> */}
+             
 
              </div>
         </Container>
+       <h1>testing outside of card</h1>
+        {renderGoalCard}
 
-    <GoalCard name=" testing" amount={200} max={1000}> </GoalCard>
+    {/* <GoalCard name={renderGoalCard} goals={goals} amount={200} max={1000}> </GoalCard> */}
     <AddGoalModal show={showAddGoalModal} handleClose={() => setShowAddGoalModal(false)} />
     </>
   )
