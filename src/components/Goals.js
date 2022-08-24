@@ -46,7 +46,7 @@ function Goals({goals, setGoals, onDeleteGoals}) {
 
              </div>
         </Container>
-       <h1>testing outside of card</h1>
+       <h1>A list of your goals </h1>
         {renderGoalCard}
 
     {/* <GoalCard name={renderGoalCard} goals={goals} amount={200} max={1000}> </GoalCard> */}

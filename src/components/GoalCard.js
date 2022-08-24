@@ -1,24 +1,33 @@
 import React, { useState } from 'react'
-import { Card, ProgressBar } from 'react-bootstrap';
+import { Card, ProgressBar,Button } from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom';
 import { currencyFormatter} from '../utility'
+
+
 
 function GoalCard({goal}) {
   const [amount, setAmount] = useState(0);
 
-  // const amount = 10
-    console.log("above in goalcard", goal)
+  const { id } = useParams();
+  const history = useHistory();
+
+    // console.log("above in goalcard", goal)
     function getProgressBarVariant(amount,max) {
         const ratio = amount / max
-        if (ratio < .5) return "primary"
+        if (ratio < .5) return "danger"
         if (ratio < .75) return "warning"
-        return "danger"
+        return "primary"
     }
 
-    console.log("before render map",goal)
-
-
-
-    // console.log("goalcard",goals)
+    function handleDelete(id){
+      fetch(`/goals/${id}`, {
+          method: "DELETE", 
+         
+      })
+      history.push("/goals")
+      history.go()
+    }
+    
     const {name_of_goal, goal_amount} = goal
     // console.log(name_of_goal)
 
@@ -30,11 +39,13 @@ function GoalCard({goal}) {
               {/* {JSON.stringify(name_of_goal)}
               {JSON.stringify(goal_amount)} */}
             <div className='me-2'> {name_of_goal} </div>
-            {/* doing .format(amount) can pass in amount */}
                         
             <div className='d-flex align-items-baseline'> 
             {currencyFormatter.format(amount)} 
-            <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span></div>
+            <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span>
+            <Button className='me-2'>Edit</Button>
+            <Button className='me-2' onClick={()=>handleDelete(goal.id)} >Delete</Button>
+            </div>
    
 
         </Card.Title>
