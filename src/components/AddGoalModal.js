@@ -3,8 +3,6 @@ import { Button, Form, Modal } from 'react-bootstrap'
 import { useForm } from '../hooks/useForm';
 
 
-
-
 function AddGoalModal({show, handleClose}) {
     
     const initialData={
@@ -39,10 +37,6 @@ function AddGoalModal({show, handleClose}) {
      
     }
 
-    
-
-
-  
     return (
         <Modal show={show} onHide={handleClose}>
           <Form onSubmit={handleSubmit}>
@@ -58,7 +52,7 @@ function AddGoalModal({show, handleClose}) {
                     onChange={handleChange} 
                     value={formData.name_of_goal} required/>
                 </Form.Group>
-                <Form.Group className='mb-3' controlId="name">
+                <Form.Group className='mb-3' controlId="goal_amount">
                     <Form.Label>Goal Amount</Form.Label>
                     <Form.Control type="number"
                     key={formData.id} 

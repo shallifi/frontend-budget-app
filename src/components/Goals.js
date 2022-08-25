@@ -42,8 +42,6 @@ function Goals({goals, setGoals, onDeleteGoals}) {
              gap: "1rem", alignItems: "flex-start"}}
              >
                 
-             
-
              </div>
         </Container>
        <h1>A list of your goals </h1>
