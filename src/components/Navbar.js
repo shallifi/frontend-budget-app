@@ -20,6 +20,7 @@ const history = useHistory();
       <div>
         <Link to="/home">Account page</Link>
         <Link to="/goals">Goals page</Link>
+        <Link to="/bills">Bills page</Link>
       </div>
       <div>
         {user ? (

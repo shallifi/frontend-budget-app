@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Card, ProgressBar,Button } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom';
 import { currencyFormatter} from '../utility'
+import EditGoalModal from './EditGoalModal';
 
 
 
 function GoalCard({goal}) {
   const [amount, setAmount] = useState(0);
+  const [showEditGoalModal, setshowEditGoalModal] = useState(false)
 
   const { id } = useParams();
   const history = useHistory();
@@ -29,7 +31,8 @@ function GoalCard({goal}) {
     }
     
     const {name_of_goal, goal_amount} = goal
-    // console.log(name_of_goal)
+    // console.log(setAmount)
+    // console.log(id)
 
   return (
     <>
@@ -43,7 +46,7 @@ function GoalCard({goal}) {
             <div className='d-flex align-items-baseline'> 
             {currencyFormatter.format(amount)} 
             <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span>
-            <Button className='me-2'>Edit</Button>
+            <Button className='me-2'onClick={() => setshowEditGoalModal(goal.id)}>Edit</Button>
             <Button className='me-2' onClick={()=>handleDelete(goal.id)} >Delete</Button>
             </div>
    
@@ -55,7 +58,7 @@ function GoalCard({goal}) {
         now={amount}/>
     </Card.Body>
     </Card>
-        
+    <EditGoalModal show={showEditGoalModal} handleClose={() => setshowEditGoalModal(false)} />
     </>
   )
 }

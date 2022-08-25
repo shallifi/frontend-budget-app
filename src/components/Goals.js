@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-import { useForm } from '../hooks/useForm';
+// import { useForm } from '../hooks/useForm';
 import AddGoalModal from './AddGoalModal';
 import GoalCard from './GoalCard';
 
@@ -11,13 +11,14 @@ import GoalCard from './GoalCard';
 function Goals({goals, setGoals, onDeleteGoals}) {
     // to show and hide modal by default it is not shown
     const [showAddGoalModal, setShowAddGoalModal] = useState(false)
+  
     
-    const initialData={
-        name_of_goal:"",
-        goal_amount:""
-    };
+    // const initialData={
+    //     name_of_goal:"",
+    //     goal_amount:""
+    // };
     
-    const {formData, setFormData, } = useForm(initialData)
+    // const {formData, setFormData, } = useForm(initialData)
      //useEffect renders once per loading the page
 
     //  const renderGoalCardAmount = goals.map((goal) => (
@@ -27,7 +28,6 @@ function Goals({goals, setGoals, onDeleteGoals}) {
         <GoalCard key={goal.id} goal={goal} /> 
       ));
  
-    
   return (
     <>
         <Container className='my-5'>
@@ -51,6 +51,7 @@ function Goals({goals, setGoals, onDeleteGoals}) {
 
     {/* <GoalCard name={renderGoalCard} goals={goals} amount={200} max={1000}> </GoalCard> */}
     <AddGoalModal show={showAddGoalModal} handleClose={() => setShowAddGoalModal(false)} />
+
     </>
   )
 }
