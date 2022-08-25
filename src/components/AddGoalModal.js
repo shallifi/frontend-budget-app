@@ -1,5 +1,6 @@
 import React, { } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 
@@ -9,6 +10,7 @@ function AddGoalModal({show, handleClose}) {
         name_of_goal:"",
         goal_amount:""
     };
+    const history = useHistory();
     
     const {formData, setFormData, handleChange} = useForm(initialData)
 //   function handleSubmit(e){}
@@ -34,7 +36,8 @@ function AddGoalModal({show, handleClose}) {
 
         });
       });
-     
+      handleClose();
+      history.go();
     }
 
     return (

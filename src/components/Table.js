@@ -25,6 +25,8 @@ const TableRow = ({ item, column}) => (
         {column.map((columnItem, index) =>{
             return <td>{item[`${columnItem.value}`]}</td>
         })}
+        <button>edit</button>
+        <button>delete</button>
     </tr>
 )
 export default Table

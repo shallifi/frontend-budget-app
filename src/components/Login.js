@@ -24,17 +24,17 @@ function Login() {
       })
       .then(res => {
         if(res.ok){
-          res.json()
-          .then(user=>{
-            setUsername(user)
-                        
-          })
-          history.push('/home')}  
+          // res.json()
+          // .then(user=>{
+          //   setUsername(user)
+                      
+          // })
+           }  
         else {
           res.json()
           .then(json => setError(json.error))
-        }
-        
+        };
+        history.go();
       })
       
   }

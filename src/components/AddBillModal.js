@@ -1,6 +1,8 @@
 import React, { } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+
 
 function AddBillModal({show, handleClose}) {
 
@@ -11,6 +13,7 @@ function AddBillModal({show, handleClose}) {
         payment:""
     };
     
+    const history = useHistory();
     const {formData, setFormData, handleChange} = useForm(initialData)
 //   function handleSubmit(e){}
 
@@ -36,7 +39,8 @@ function AddBillModal({show, handleClose}) {
                 payment:""
         });
       });
-     
+     handleClose();
+     history.go();
     }
 
   return (
