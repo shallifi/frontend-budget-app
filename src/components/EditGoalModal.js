@@ -1,7 +1,9 @@
 import React, { } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+// import { currencyFormatter} from '../utility'
 
 
 
@@ -13,7 +15,7 @@ function EditGoalModal({goal, show, handleClose}) {
         name_of_goal:goal["name_of_goal"],
         goal_amount:goal.goal_amount
     };
-    // const { id } = useParams();
+   const history = useHistory();
     
     // console.log("in editmodal", id)
 
@@ -42,6 +44,7 @@ function EditGoalModal({goal, show, handleClose}) {
         });
       });
      
+      history.go();
     }
 
   
@@ -61,12 +64,12 @@ function EditGoalModal({goal, show, handleClose}) {
                     value={formData.name_of_goal} required/>
                 </Form.Group>
                 <Form.Group className='mb-3' controlId="name">
-                    <Form.Label>Goal Amount</Form.Label>
+                    <Form.Label>Goal Amount $</Form.Label>
                     <Form.Control type="number"
                     key={formData.id} 
                     name="goal_amount"
                     onChange={handleChange}
-                    value={formData.goal_amount} required min={0} step={0.01}  />
+                    value={formData.goal_amount}  required min={0} step={1.00}  />
                 </Form.Group>
                 {/* putting button in div to be able to put at end  */}
                 <div className="d-flex justify-content-end">

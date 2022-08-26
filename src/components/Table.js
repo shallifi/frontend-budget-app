@@ -1,12 +1,12 @@
 
 import React from 'react'
-import Bills from './Bills'
-import EditBillModal from './EditBillModal'
+// import Bills from './Bills'
+// import EditBillModal from './EditBillModal'
 import TableRow from './TableRow'
 
 
 
-function Table ({ dataTable, column,handleDelete, setShowEditBillModal})  {
+function Table ({ dataTable, column})  {
 
     // console.log("inbills",dataTable);
     return(

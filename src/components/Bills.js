@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Stack, Table } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import AddBillModal from './AddBillModal';
 
 
@@ -10,16 +10,16 @@ function Bills() {
      // to show and hide modal by default it is not shown
      const [showAddBillModal, setShowAddBillModal] = useState(false)
      const [showEditBillModal, setShowEditBillModal] = useState(false)
-    const history = useHistory();
+    // const history = useHistory();
 
-     function handleDelete(id){
-      fetch(`/bills/${id}`, {
-          method: "DELETE", 
+    //  function handleDelete(id){
+    //   fetch(`/bills/${id}`, {
+    //       method: "DELETE", 
          
-      })
-      history.push("/bills")
-      history.go()
-    }
+    //   })
+    //   history.push("/bills")
+    //   history.go()
+    // }
 
   return (
     <>
@@ -31,7 +31,7 @@ function Bills() {
 
         </Stack>
       </Container>
-        <Table handleDelete={handleDelete} show={showEditBillModal} handleClose={() => setShowEditBillModal(false)}/>
+        <Table show={showEditBillModal} handleClose={() => setShowEditBillModal(false)}/>
       <AddBillModal show={showAddBillModal} handleClose={() => setShowAddBillModal(false)} />
         
         </>

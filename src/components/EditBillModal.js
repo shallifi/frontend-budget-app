@@ -1,11 +1,12 @@
 import React, { } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+
 
 function EditBillModal({item, show, handleClose}) {
     
-    // console.log("inside editmod", item)
+   
     
 
     const initialData={
@@ -15,7 +16,7 @@ function EditBillModal({item, show, handleClose}) {
         payment:item.payment
     };
     
-    // const history = useHistory();
+    const history = useHistory();
     const {formData, setFormData, handleChange} = useForm(initialData)
     const { id } = useParams();
 
@@ -40,9 +41,11 @@ function EditBillModal({item, show, handleClose}) {
                     payment:""
             });
           });
-         
+          handleClose();
+          history.go();
         }
 
+        // console.log("inside editmod", formData.min_payment)
   return (
     <Modal show={show} onHide={handleClose}>
     <Form onSubmit={handleSubmit}>

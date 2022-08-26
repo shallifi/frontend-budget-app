@@ -55,12 +55,12 @@ function App() {
 
   // use the dot sort function
 
-  const onDeleteGoals = (deletedGoal) => {
-    const updatedGoals = goals.filter(
-      (goal) => goal.id !== deletedGoal.id
-    );
-    setGoals(updatedGoals);
-  };
+  // const onDeleteGoals = (deletedGoal) => {
+  //   const updatedGoals = goals.filter(
+  //     (goal) => goal.id !== deletedGoal.id
+  //   );
+  //   setGoals(updatedGoals);
+  // };
 
 
   return (
@@ -86,7 +86,7 @@ function App() {
           </Route>
 
           <Route path="/goals">
-              <Goals goals={goals} setGoals={setGoals} onDeleteGoals={onDeleteGoals}/>
+              <Goals goals={goals} setGoals={setGoals} />
             <h1> Goals (from the App components) </h1>
           </Route>
 
