@@ -48,7 +48,12 @@ function App() {
   ]
 
 // this console log worked showing dataTable
-  console.log("in app",dataTable)
+  // console.log("in app",dataTable)
+
+  // filter similar to onDelete goals by the id update 
+  // set goals with filter arrray spread that in and add in the one that comes back from fetch all this happens inside of dot then that happens inside return from patch
+
+  // use the dot sort function
 
   const onDeleteGoals = (deletedGoal) => {
     const updatedGoals = goals.filter(

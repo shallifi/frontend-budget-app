@@ -6,15 +6,16 @@ import { useForm } from '../hooks/useForm';
 
 
 
-function EditGoalModal({show, handleClose}) {
+function EditGoalModal({goal, show, handleClose}) {
     
+  // console.log("inside goalmodal", goal);
     const initialData={
-        name_of_goal:"",
-        goal_amount:""
+        name_of_goal:goal["name_of_goal"],
+        goal_amount:goal.goal_amount
     };
-    const { id } = useParams();
-
-    // console.log("in editmodal", name_of_goal)
+    // const { id } = useParams();
+    
+    // console.log("in editmodal", id)
 
     const {formData, setFormData, handleChange} = useForm(initialData)
 //   function handleSubmit(e){}
@@ -22,7 +23,7 @@ function EditGoalModal({show, handleClose}) {
   // handling post
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    // console.log("egm inside ",formData)
     const configObj = {
       method: "PATCH",
       headers: {
@@ -31,7 +32,7 @@ function EditGoalModal({show, handleClose}) {
       },
       body: JSON.stringify( formData ),
     };
-      fetch(`/goals/${id}`, configObj)
+      fetch(`/goals/${goal.id}`, configObj)
         .then((resp) => resp.json())
         .then((editGoal) => {
             setFormData({

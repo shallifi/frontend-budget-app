@@ -58,7 +58,7 @@ function GoalCard({goal}) {
         now={amount}/>
     </Card.Body>
     </Card>
-    <EditGoalModal show={showEditGoalModal} handleClose={() => setshowEditGoalModal(false)} />
+    <EditGoalModal goal={goal} show={showEditGoalModal} handleClose={() => setshowEditGoalModal(false)} />
     </>
   )
 }

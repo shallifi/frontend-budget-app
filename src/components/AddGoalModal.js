@@ -13,7 +13,7 @@ function AddGoalModal({show, handleClose}) {
     const history = useHistory();
     
     const {formData, setFormData, handleChange} = useForm(initialData)
-//   function handleSubmit(e){}
+
 
   // handling post
   const handleSubmit = (e) => {
@@ -47,7 +47,7 @@ function AddGoalModal({show, handleClose}) {
                 <Modal.Title>New Goal</Modal.Title>
             </Modal.Header> 
             <Modal.Body>
-                <Form.Group className='mb-3' controlId="name_of_goal">
+                <Form.Group className='mb-3' >
                     <Form.Label>Name of Goal</Form.Label>
                     <Form.Control type="text"
                     key={formData.id} 
@@ -55,7 +55,7 @@ function AddGoalModal({show, handleClose}) {
                     onChange={handleChange} 
                     value={formData.name_of_goal} required/>
                 </Form.Group>
-                <Form.Group className='mb-3' controlId="goal_amount">
+                <Form.Group className='mb-3'>
                     <Form.Label>Goal Amount</Form.Label>
                     <Form.Control type="number"
                     key={formData.id} 

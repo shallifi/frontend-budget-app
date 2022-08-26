@@ -15,7 +15,7 @@ function AddBillModal({show, handleClose}) {
     
     const history = useHistory();
     const {formData, setFormData, handleChange} = useForm(initialData)
-//   function handleSubmit(e){}
+
 
   // handling post
   const handleSubmit = (e) => {
@@ -80,7 +80,7 @@ function AddBillModal({show, handleClose}) {
                     key={formData.id} 
                     name="payment"
                     onChange={handleChange}
-                    value={formData.payment} required min={0} step={0.01}  />
+                    value={formData.payment} min={0} step={0.01}  />
                 </Form.Group>
                 {/* putting button in div to be able to put at end  */}
                 <div className="d-flex justify-content-end">
