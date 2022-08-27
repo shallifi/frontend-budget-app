@@ -7,6 +7,8 @@ import AccountPage from "./components/AccountPage";
 import Bills from "./components/Bills";
 // import { Table } from "react-bootstrap";
 import Table from "./components/Table";
+import Expenses from "./components/Expenses";
+
 
 function App() {
   const [user, setUser] = useState(null)
@@ -88,6 +90,11 @@ function App() {
           <Route path="/goals">
               <Goals goals={goals} setGoals={setGoals} />
             <h1> Goals (from the App components) </h1>
+          </Route>
+
+          <Route path="/expenses">
+              <Expenses  />
+            <h1> Expenses (from the App component) </h1>
           </Route>
 
 

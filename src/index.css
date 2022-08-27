@@ -128,3 +128,18 @@ table th, table td {
   padding: 8px;
   background-color: darkgrey;
 }
+
+/* chart */
+
+canvas {
+  display: flex;
+  max-height: 20rem;
+  max-width: 20rem;
+}
+
+.doughnut title{
+  flex:auto;
+  justify-content: center;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
