@@ -13,7 +13,7 @@ function Expenses() {
     const [expenses, setExpenses] = useState();
 
     useEffect(() => {
-        fetch('/expenses')
+        fetch('/expenditures')
           .then((res) => res.json())
           .then((data) => setExpenses(data));
       }, [setExpenses]);

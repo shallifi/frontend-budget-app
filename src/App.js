@@ -66,7 +66,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    
       <div className="App">
         <Navbar user={user} setUser={setUser} />
         <Switch>
@@ -110,7 +110,7 @@ function App() {
 
         
       </div>
-    </BrowserRouter>
+    
   );
 }
 

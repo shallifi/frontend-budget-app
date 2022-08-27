@@ -10,50 +10,58 @@ function Auth() {
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    function onSubmit(e){
-        e.preventDefault()
-        const user = {
-            username,
-            email,
-            password,
-            password_confirmation: passwordConfirmation
+  
+ function handleSubmit(e){
+            e.preventDefault()
+            const user = {
+                username,
+                email,
+                password,
+                password_confirmation: passwordConfirmation
+            }
+           
+            fetch('/users',{
+              method:'POST',
+              headers:{'Content-Type': 'application/json'},
+              body:JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(json => {
+                if(json.errors) setErrors(Object.entries(json.errors))
+                else alert("Success")
+                history.push('/goals')
+            })
         }
-       
-        fetch('/users',{
-          method:'POST',
-          headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
-        })
-        .then(res => res.json())
-        .then(json => {
-            if(json.errors) setErrors(Object.entries(json.errors))
-            else alert("Thank you for signing up")
-            history.push("/home")
+        // .then(res => res.json())
+        // .then(json => {
+        //     if(json.errors) setErrors(Object.entries(json.errors))
+        //     else alert("Thank you for signing up")
+        //     history.push("/home")
             
-        })
-    }
+        
+    
     return (
       <> 
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <fieldset>
         <legend>Sign UP</legend>
-            <label htmlFor="username1">
+            <label htmlFor="username">
                 Username
             </label>
-                <input type="text" id="username1" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <label htmlFor="email1">
             Email
             </label>
             <input type="text" id="email1" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <label htmlFor="password1">
+            <label htmlFor="password">
             Password
             </label>
-            <input type="password" id="password1"value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" id="password"value={password} onChange={(e) => setPassword(e.target.value)} />
             
-            <label htmlFor="password2">
+            <label htmlFor="password">
             Confirm Password
             </label>
-            <input type="password" id="password2"value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+            <input type="password" id="password"value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
             
             <input type="submit" value="Sign up!" />
         </fieldset>

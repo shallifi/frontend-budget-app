@@ -27,6 +27,8 @@ function Login() {
           // res.json()
           // .then(user=>{
           //   setUsername(user)
+          history.push("/home")
+          history.go();
                       
           // })
            }  
@@ -34,7 +36,6 @@ function Login() {
           res.json()
           .then(json => setError(json.error))
         };
-        history.go();
       })
       
   }
