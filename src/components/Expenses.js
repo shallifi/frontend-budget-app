@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container } from 'react-bootstrap';
-import { Doughnut } from 'react-chartjs-2'
+// import { Doughnut } from 'react-chartjs-2'
 import ExpForm from './additional comps/ExpForm';
 import Graph from './additional comps/Graph'
 
@@ -26,7 +26,7 @@ function Expenses() {
        <Graph expenses={expenses} setExpenses={setExpenses}/>
         </Col>
         <Col>
-       <ExpForm></ExpForm>
+       <ExpForm expenses={expenses} setExpenses={setExpenses}/>
         
         </Col>
 

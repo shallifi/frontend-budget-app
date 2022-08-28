@@ -6,6 +6,7 @@ function LabelForCircle() {
 
     
 
+    
     function labelComponent(){
         return (
             <div className='labels flex justify-between'>
