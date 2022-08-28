@@ -16,6 +16,7 @@ function EditBillModal({item, show, handleClose}) {
         payment:item.payment
     };
     
+   
     const history = useHistory();
     const {formData, setFormData, handleChange} = useForm(initialData)
     const { id } = useParams();
@@ -44,7 +45,7 @@ function EditBillModal({item, show, handleClose}) {
           handleClose();
           history.go();
         }
-
+        console.log("EBL", item)
         // console.log("inside editmod", formData.min_payment)
   return (
     <Modal show={show} onHide={handleClose}>
@@ -69,14 +70,6 @@ function EditBillModal({item, show, handleClose}) {
               onChange={handleChange}
               value={formData.min_payment} required min={0} step={0.01}  />
           </Form.Group>
-          <Form.Group className='mb-3' controlId="payoff_amount">
-              <Form.Label>Payoff Amount</Form.Label>
-              <Form.Control type="number"
-              key={formData.id} 
-              name="payoff_amount"
-              onChange={handleChange}
-              value={formData.payoff_amount} required min={0} step={0.01}  />
-          </Form.Group>
           <Form.Group className='mb-3' controlId="payment">
               <Form.Label>Payment</Form.Label>
               <Form.Control type="number"
@@ -84,6 +77,14 @@ function EditBillModal({item, show, handleClose}) {
               name="payment"
               onChange={handleChange}
               value={formData.payment} min={0} step={0.01}  />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId="payoff_amount">
+              <Form.Label>Payoff Amount</Form.Label>
+              <Form.Control type="number"
+              key={formData.id} 
+              name="payoff_amount"
+              onChange={handleChange}
+              value={formData.payoff_amount} required min={0} step={0.01}  />
           </Form.Group>
           {/* putting button in div to be able to put at end  */}
           <div className="d-flex justify-content-end">

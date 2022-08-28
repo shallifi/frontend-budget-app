@@ -13,11 +13,12 @@ function EditGoalModal({goal, show, handleClose}) {
   // console.log("inside goalmodal", goal);
     const initialData={
         name_of_goal:goal["name_of_goal"],
+        goal_payment:goal.goal_payment,
         goal_amount:goal.goal_amount
     };
    const history = useHistory();
     
-    // console.log("in editmodal", id)
+    // console.log("in editmodal", goal.goal_payment)
 
     const {formData, setFormData, handleChange} = useForm(initialData)
 //   function handleSubmit(e){}
@@ -62,6 +63,14 @@ function EditGoalModal({goal, show, handleClose}) {
                     name="name_of_goal"
                     onChange={handleChange} 
                     value={formData.name_of_goal} required/>
+                </Form.Group>
+                <Form.Group className='mb-3' controlId="goal_payment">
+                    <Form.Label>Goal Payment $</Form.Label>
+                    <Form.Control type="number"
+                    key={formData.id} 
+                    name="goal_payment"
+                    onChange={handleChange}
+                    value={formData.goal_payment}  required min={0} step={1.00}  />
                 </Form.Group>
                 <Form.Group className='mb-3' controlId="name">
                     <Form.Label>Goal Amount $</Form.Label>

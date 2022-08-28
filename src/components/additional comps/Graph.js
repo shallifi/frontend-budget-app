@@ -9,7 +9,7 @@ Chart.register(ArcElement);
 
 function Graph({expenses, setExpenses}) {
 
-    console.log("graph", expenses)
+   
     
     // gives color to the bands in the doughnut
     const data = {

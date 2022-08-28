@@ -21,7 +21,7 @@ function ExpForm({expenses}) {
   }, [setFormData]);
     
     
-// console.log("expform", expenses)
+console.log("expform", expenses)
 
   //  const expMap = expenses.map((type) => (
   //           <option key={type} value={type}>
@@ -30,7 +30,7 @@ function ExpForm({expenses}) {
   //         ))
       
 //  const arr = [expenses]
-console.log("map in expform", formData)
+// console.log("map in expform", formData)
 
 
 // handling post
@@ -55,6 +55,8 @@ console.log("map in expform", formData)
     // handleClose();
     // history.go();
   }
+  // expenses.map((edp) => console.log(edp))
+
 
   return (
   

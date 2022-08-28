@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import { Card, ProgressBar,Button } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { currencyFormatter} from '../utility'
 import EditGoalModal from './EditGoalModal';
 
 
 
 function GoalCard({goal}) {
-  const [amount, setAmount] = useState(0);
+  // const [amount, setAmount] = useState(0);
   const [showEditGoalModal, setshowEditGoalModal] = useState(false)
 
-  const { id } = useParams();
+  // const { id } = useParams();
   const history = useHistory();
 
-    // console.log("above in goalcard", goal)
+    // console.log("above in goalcard", goal.goal_payment)
     function getProgressBarVariant(amount,max) {
         const ratio = amount / max
         if (ratio < .5) return "danger"
@@ -30,7 +30,7 @@ function GoalCard({goal}) {
       history.go()
     }
     
-    const {name_of_goal, goal_amount} = goal
+    const {name_of_goal, goal_amount,goal_payment} = goal
     // console.log(setAmount)
     // console.log(id)
 
@@ -44,7 +44,7 @@ function GoalCard({goal}) {
             <div className='me-2'> {name_of_goal} </div>
                         
             <div className='d-flex align-items-baseline'> 
-            {currencyFormatter.format(amount)} 
+            {currencyFormatter.format(goal_payment)} 
             <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span>
             <Button className='me-2'onClick={() => setshowEditGoalModal(goal.id)}>Edit</Button>
             <Button className='me-2' onClick={()=>handleDelete(goal.id)} >Delete</Button>
@@ -52,10 +52,10 @@ function GoalCard({goal}) {
    
 
         </Card.Title>
-        <ProgressBar className='rounded-pill' variant={getProgressBarVariant(amount,goal_amount)}
+        <ProgressBar className='rounded-pill' variant={getProgressBarVariant(goal_payment,goal_amount)}
         min={0}
         max={goal_amount}
-        now={amount}/>
+        now={goal_payment}/>
     </Card.Body>
     </Card>
     <EditGoalModal goal={goal} show={showEditGoalModal} handleclose={() => setshowEditGoalModal(false)} />

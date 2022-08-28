@@ -28,13 +28,14 @@ function Goals({goals, setGoals, onDeleteGoals}) {
         <GoalCard key={goal.id} goal={goal} /> 
       ));
  
+      // console.log("goals", renderGoalCard)
   return (
     <>
         <Container className='my-5'>
             <Stack direction="horizontal" gap="3" className="mb-4">
                 <h1 className='me-auto'>Goals</h1>
                 <Button variant="primary" onClick={() => setShowAddGoalModal(true)} > Add Goal</Button>
-                <Button variant="outline-primary"> Add Money</Button>
+                {/* <Button variant="outline-primary"> Add Money</Button> */}
 
             </Stack>
             <div style={{display:"grid", 
