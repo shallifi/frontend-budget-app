@@ -32,7 +32,7 @@ function Bills() {
         </Stack>
       </Container>
         <Table show={showEditBillModal} handleClose={() => setShowEditBillModal(false)}/>
-      <AddBillModal show={showAddBillModal} handleClose={() => setShowAddBillModal(false)} />
+        <AddBillModal show={showAddBillModal} handleClose={() => setShowAddBillModal(false)} />
         
         </>
   )

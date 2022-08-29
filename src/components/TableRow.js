@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import EditBillModal from "./EditBillModal";
 
 
 
-function TableRow ({ item, column}) {
+
+function TableRow ({ show, item, column}) {
 const [showEditBillModal, setShowEditBillModal] = useState(false);
 const history = useHistory();
 
@@ -16,7 +18,30 @@ function handleDelete(id){
     history.push("/bills")
     history.go()
   }
-    // console.log("intablerow comp", item)
+  
+
+
+  // const testAmounts = item.map(minpay => minpay.min_payment);
+
+
+  // const totals = item.min_payment 
+
+  // const totalColumn = totals.reduce(function (acc, obj){return acc + obj;},0);
+  
+  // const aveTotal = (totals) => {
+  //   const sum = totals.reduce((prev,curr) => prev + curr, 0)
+  //   return sum / totals.length
+  // }
+
+
+
+
+  // console.log("intablerow comp",)
+
+
+  
+  
+  
 
   return  (<>
     <tr>
@@ -27,7 +52,9 @@ function handleDelete(id){
             <button className='me-2' onClick={()=>handleDelete(item.id)} >Delete</button>
     </tr>
     <EditBillModal item={item} show={showEditBillModal} handleClose={() => setShowEditBillModal(false)} />
+  
     </>)
+    
 }
 
 export default TableRow;

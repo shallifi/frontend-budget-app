@@ -40,11 +40,12 @@ function EditGoalModal({goal, show, handleClose}) {
         .then((editGoal) => {
             setFormData({
             name_of_goal:"",
-            goal_amount: ""
+            goal_amount: "",
+            goal_payment:""
 
         });
       });
-     
+      
       history.go();
     }
 

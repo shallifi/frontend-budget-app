@@ -10,6 +10,7 @@ import Table from "./components/Table";
 import Expenses from "./components/Expenses";
 
 
+
 function App() {
   const [user, setUser] = useState(null)
   const [goals, setGoals] = useState([]);
@@ -80,6 +81,7 @@ function App() {
               <Table  dataTable={dataTable} setDataTable={setDataTable} column={column} />
               {/* put this on line above if using bills={bills} setBills={setBills} */}
             <h1>Bill page info on app component</h1>
+            
           </Route>
 
           <Route path="/login">

@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 
@@ -19,7 +19,7 @@ function EditBillModal({item, show, handleClose}) {
    
     const history = useHistory();
     const {formData, setFormData, handleChange} = useForm(initialData)
-    const { id } = useParams();
+    // const { id } = useParams();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ function EditBillModal({item, show, handleClose}) {
           },
           body: JSON.stringify( formData ),
         };
-          fetch(`/bills/${id}`, configObj)
+          fetch(`/bills/${item.id}`, configObj)
             .then((resp) => resp.json())
             .then((editBill) => {
                 setFormData({
@@ -45,8 +45,8 @@ function EditBillModal({item, show, handleClose}) {
           handleClose();
           history.go();
         }
-        console.log("EBL", item)
-        // console.log("inside editmod", formData.min_payment)
+        // console.log("EBL", item)
+        // console.log("inside editmod", item.id)
   return (
     <Modal show={show} onHide={handleClose}>
     <Form onSubmit={handleSubmit}>
@@ -68,7 +68,7 @@ function EditBillModal({item, show, handleClose}) {
               key={formData.id} 
               name="min_payment"
               onChange={handleChange}
-              value={formData.min_payment} required min={0} step={0.01}  />
+              value={formData.min_payment} required min={0} step={1.00}  />
           </Form.Group>
           <Form.Group className='mb-3' controlId="payment">
               <Form.Label>Payment</Form.Label>
@@ -76,7 +76,7 @@ function EditBillModal({item, show, handleClose}) {
               key={formData.id} 
               name="payment"
               onChange={handleChange}
-              value={formData.payment} min={0} step={0.01}  />
+              value={formData.payment} min={0} step={1.00}  />
           </Form.Group>
           <Form.Group className='mb-3' controlId="payoff_amount">
               <Form.Label>Payoff Amount</Form.Label>
@@ -84,7 +84,7 @@ function EditBillModal({item, show, handleClose}) {
               key={formData.id} 
               name="payoff_amount"
               onChange={handleChange}
-              value={formData.payoff_amount} required min={0} step={0.01}  />
+              value={formData.payoff_amount} required min={0} step={1.00}  />
           </Form.Group>
           {/* putting button in div to be able to put at end  */}
           <div className="d-flex justify-content-end">
