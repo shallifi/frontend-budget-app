@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+// import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import EditBillModal from "./EditBillModal";
 
@@ -21,26 +21,6 @@ function handleDelete(id){
   
 
 
-  // const testAmounts = item.map(minpay => minpay.min_payment);
-
-
-  // const totals = item.min_payment 
-
-  // const totalColumn = totals.reduce(function (acc, obj){return acc + obj;},0);
-  
-  // const aveTotal = (totals) => {
-  //   const sum = totals.reduce((prev,curr) => prev + curr, 0)
-  //   return sum / totals.length
-  // }
-
-
-
-
-  // console.log("intablerow comp",)
-
-
-  
-  
   
 
   return  (<>

@@ -10,23 +10,23 @@ import Graph from './additional comps/Graph'
 
 
 function Expenses() {
-    const [expenses, setExpenses] = useState();
+    const [expenseType, setExpenseType] = useState();
 
     useEffect(() => {
         fetch('/expenditures')
           .then((res) => res.json())
-          .then((data) => setExpenses(data));
-      }, [setExpenses]);
+          .then((data) => setExpenseType(data));
+      }, [setExpenseType]);
 
     //   console.log("in expense", expenses)
   return (
     <>
     <Container>
         <Col>
-       <Graph expenses={expenses} setExpenses={setExpenses}/>
+       <Graph/>
         </Col>
         <Col>
-       <ExpForm expenses={expenses} setExpenses={setExpenses}/>
+       <ExpForm expenseType={expenseType} setExpenseType={setExpenseType}/>
         
         </Col>
 

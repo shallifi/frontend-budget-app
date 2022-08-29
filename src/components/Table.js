@@ -26,7 +26,7 @@ const totalColumnPayoffAmount = payOffMap.reduce((acc, item) => (acc += item), 0
 const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
 
 
-    console.log("table",);
+    // console.log("table",);
 
 
 

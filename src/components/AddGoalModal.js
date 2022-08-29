@@ -39,7 +39,7 @@ function AddGoalModal({show, handleClose}) {
       handleClose();
       history.go();
     }
-
+    
     return (
         <Modal show={show} onHide={handleClose}>
           <Form onSubmit={handleSubmit}>

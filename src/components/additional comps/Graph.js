@@ -44,7 +44,7 @@ function Graph({expenses, setExpenses}) {
             </div>
             <div className='flex flex-col py-10 gap-4'>
             
-            <LabelForCircle></LabelForCircle>
+            {/* <LabelForCircle></LabelForCircle> */}
 
             </div>
         </div>

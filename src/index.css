@@ -19,6 +19,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: oran;
 }
 
 button, input[type=submit] {
@@ -154,4 +155,25 @@ canvas {
 
 .exp column layout {
   
+}
+
+/* history list */
+
+.history_list {
+  flex: auto;
+  columns: auto;
+  padding: 6rem;
+  gap: 3rem;
+}
+
+.history_h1 {
+  padding: 4px;
+  font: bold;
+}
+
+.transaction_func {
+  align-items: flex-start;
+  justify:center;
+  background-color: gray;
+  padding: 2px;
 }
