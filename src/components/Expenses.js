@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  } from 'react'
 import { Col, Container } from 'react-bootstrap';
 // import { Doughnut } from 'react-chartjs-2'
 import ExpForm from './additional comps/ExpForm';
@@ -11,22 +11,22 @@ import ListOfDebits from './additional comps/ListOfDebits';
 
 
 
-function Expenses({user}) {
+function Expenses({user, userExpenditure}) {
 
-  const [userExpenditure, setUserExpenditure] = useState([]);
+
   
-  useEffect(() => {
-    fetch('/user_expenditures')
-      .then((res) => res.json())
-      .then((data) => setUserExpenditure(data));
-  }, [setUserExpenditure]);
+  // useEffect(() => {
+  //   fetch('/user_expenditures')
+  //     .then((res) => res.json())
+  //     .then((data) => setUserExpenditure(data));
+  // }, [setUserExpenditure]);
 
   // console.log("expensesPage", userExpenditure)
 
   // const {description, expense_amount} = userExpenditure
   // console.log("ep after decon", description)
 
-  const descOfUserExp = userExpenditure.map(data => data.description)
+  // const descOfUserExp = userExpenditure.map(data => data.description)
 
   // console.log("ep map try", descOfUserExp)
 
@@ -46,10 +46,7 @@ function Expenses({user}) {
         
         {/* <ListOfDebits  userExpenditure={userExpenditure}/> */}
         </Col>
-        Expenses from expense component
-        
-   
-
+    
     </Container>
     {renderListCard}
     

@@ -1,16 +1,14 @@
 import React from 'react'
 import { Doughnut} from 'react-chartjs-2'
-// import { useForm } from '../../hooks/useForm';
 import {Chart, ArcElement} from 'chart.js'
-import LabelForCircle from './LabelForCircle';
+// import { useForm } from '../../hooks/useForm';
+// import LabelForCircle from './LabelForCircle';
 
 
 Chart.register(ArcElement);
 
 function Graph({expenses, setExpenses}) {
-
    
-    
     // gives color to the bands in the doughnut
     const data = {
         labels: [
@@ -20,7 +18,7 @@ function Graph({expenses, setExpenses}) {
         ],
         datasets: [{
           label: 'My First Dataset',
-          data: [300, 100, 100],
+          data: [200, 100, 100],
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
@@ -49,7 +47,7 @@ function Graph({expenses, setExpenses}) {
             </div>
         </div>
 
-        Graph
+  
         
     </div>
   )

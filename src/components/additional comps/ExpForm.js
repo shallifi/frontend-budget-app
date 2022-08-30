@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from '../../hooks/useForm';
 // import ListOfDebits from './ListOfDebits';
@@ -70,7 +70,7 @@ function ExpForm({renderListCard, user}) {
   
     <>
         
-       <h1>Transaction</h1>
+       <h1>Transaction Type</h1>
        <Form onSubmit={handleSubmit}>
         <Form.Select className="select" name="expenditure_id" onChange={handleChange}>
           <option > select a type</option>
@@ -111,10 +111,10 @@ function ExpForm({renderListCard, user}) {
         
         
         {/* <input type="number" value="expense_amount"placeholder='Amount spent$'></input> */}
-        <Button variant='primary' type='submit'> add expense</Button>
+        <Button className='mb-3'variant='primary' type='submit'> add expense</Button>
 
         </Form>
-            list of Debits on ExpForm for list
+      
                {renderListCard}
       
 

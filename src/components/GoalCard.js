@@ -6,7 +6,7 @@ import EditGoalModal from './EditGoalModal';
 
 
 
-function GoalCard({goal}) {
+function GoalCard({goal,user}) {
   // const [amount, setAmount] = useState(0);
   const [showEditGoalModal, setshowEditGoalModal] = useState(false)
 
@@ -14,7 +14,8 @@ function GoalCard({goal}) {
   // const { id } = useParams();
   const history = useHistory();
 
-    // console.log("above in goalcard", goal.goal_payment)
+    console.log("above in goalcard", goal)
+
     function getProgressBarVariant(amount,max) {
         const ratio = amount / max
         if (ratio < .5) return "danger"
@@ -42,12 +43,12 @@ function GoalCard({goal}) {
     <>
     <Card>
         <Card.Body>
-            <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal'>
+            <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal '>
               {/* {JSON.stringify(name_of_goal)}
               {JSON.stringify(goal_amount)} */}
             <div className='me-2'> {name_of_goal} </div>
                         
-            <div className='d-flex align-items-baseline'> 
+            <div className='d-flex align-items-baseline m3-2'> 
             {currencyFormatter.format(goal_payment)} 
             <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span>
             <Button className='me-2'onClick={() => setshowEditGoalModal(goal.id)}>Edit</Button>

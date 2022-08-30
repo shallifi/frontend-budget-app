@@ -4,9 +4,25 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 
-function AddGoalModal({show, handleClose}) {
-    
+
+
+
+
+function AddGoalModal({show, handleClose,user}) {
+  // const [user, setUser] = useState(null)  
+  
+  // useEffect(() => {
+  //   // auto-login
+  //   fetch("/me").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
+ 
+  // console.log("addmodal", user)
     const initialData={
+        user_id:user.id,
         name_of_goal:"",
         goal_amount:""
     };
@@ -31,6 +47,7 @@ function AddGoalModal({show, handleClose}) {
         .then((resp) => resp.json())
         .then((newGoals) => {
             setFormData({
+            user_id:"",
             name_of_goal:"",
             goal_amount: ""
 

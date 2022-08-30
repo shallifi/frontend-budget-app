@@ -1,9 +1,6 @@
 
 import React from 'react'
-import AccountPage from './AccountPage'
-// import AccountPage from './AccountPage'
-// import Bills from './Bills'
-// import EditBillModal from './EditBillModal'
+
 import TableRow from './TableRow'
 // import { Table } from "react-bootstrap";
 
@@ -29,7 +26,7 @@ const totalColumnPayoffAmount = payOffMap.reduce((acc, item) => (acc += item), 0
 const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
 
 
-    console.log("table",totalColumnMinPayment);
+    // console.log("table",totalColumnMinPayment);
 
 
 

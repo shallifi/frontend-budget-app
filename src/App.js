@@ -11,11 +11,14 @@ import Expenses from "./components/Expenses";
 
 
 
+
 function App() {
   const [user, setUser] = useState(null)
   const [goals, setGoals] = useState([]);
   // const [bills, setBills] = useState([]);
-  const [dataTable, setDataTable] = useState([])
+  const [dataTable, setDataTable] = useState([]);
+  const [userExpenditure, setUserExpenditure] = useState([]);
+
  
 
   useEffect(() => {
@@ -40,6 +43,12 @@ function App() {
       .then((res) => res.json())
       .then((data) => setDataTable(data));
   }, [setDataTable]);
+
+  useEffect(() => {
+    fetch('/user_expenditures')
+      .then((res) => res.json())
+      .then((data) => setUserExpenditure(data));
+  }, [setUserExpenditure]);
  
   if (!user) return <Login onLogin={setUser} />;
 
@@ -53,18 +62,6 @@ function App() {
 // this console log worked showing dataTable
   // console.log("in app",dataTable)
 
-  // filter similar to onDelete goals by the id update 
-  // set goals with filter arrray spread that in and add in the one that comes back from fetch all this happens inside of dot then that happens inside return from patch
-
-  // use the dot sort function
-
-  // const onDeleteGoals = (deletedGoal) => {
-  //   const updatedGoals = goals.filter(
-  //     (goal) => goal.id !== deletedGoal.id
-  //   );
-  //   setGoals(updatedGoals);
-  // };
-
 
   return (
     
@@ -72,7 +69,7 @@ function App() {
         <Navbar user={user} setUser={setUser} />
         <Switch>
           <Route path="/home">
-              <AccountPage dataTable={dataTable} goals={goals}/>
+              <AccountPage dataTable={dataTable} goals={goals} userExpenditure={userExpenditure} />
             
           </Route>
 
@@ -80,7 +77,7 @@ function App() {
               <Bills />
               <Table  dataTable={dataTable} setDataTable={setDataTable} column={column} />
               {/* put this on line above if using bills={bills} setBills={setBills} */}
-            <h1>Bill page info on app component</h1>
+         
             
           </Route>
 
@@ -90,13 +87,13 @@ function App() {
           </Route>
 
           <Route path="/goals">
-              <Goals goals={goals} setGoals={setGoals} />
-            <h1> Goals (from the App components) </h1>
+              <Goals goals={goals} setGoals={setGoals} user={user}/>
+              
           </Route>
 
           <Route path="/expenses">
-              <Expenses user={user} />
-            <h1> Expenses (from the App component) </h1>
+              <Expenses user={user} userExpenditure={userExpenditure}/>
+             
           </Route>
 
 

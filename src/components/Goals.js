@@ -8,7 +8,7 @@ import GoalCard from './GoalCard';
 
 
 
-function Goals({goals, setGoals, onDeleteGoals}) {
+function Goals({goals, setGoals, onDeleteGoals, user}) {
     // to show and hide modal by default it is not shown
     const [showAddGoalModal, setShowAddGoalModal] = useState(false)
   
@@ -18,7 +18,7 @@ function Goals({goals, setGoals, onDeleteGoals}) {
         <GoalCard key={goal.id} goal={goal} /> 
       ));
  
-      // console.log("goals", renderGoalCard)
+      console.log("goals", user)
   return (
     <>
         <Container className='my-5'>
@@ -38,8 +38,8 @@ function Goals({goals, setGoals, onDeleteGoals}) {
        <h1>A list of your goals </h1>
         {renderGoalCard}
 
-    {/* <GoalCard name={renderGoalCard} goals={goals} amount={200} max={1000}> </GoalCard> */}
-    <AddGoalModal show={showAddGoalModal} handleClose={() => setShowAddGoalModal(false)} />
+    
+    <AddGoalModal user={user} show={showAddGoalModal} handleClose={() => setShowAddGoalModal(false)} />
 
     </>
   )
