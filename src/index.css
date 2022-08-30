@@ -73,7 +73,10 @@ label {
 
 /* end of code for login */
 
-
+.header_AccPage{
+  display: flex;
+  justify-content: center;
+}
 /* header code */
 
 header {

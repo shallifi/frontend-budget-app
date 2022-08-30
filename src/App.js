@@ -72,7 +72,7 @@ function App() {
         <Navbar user={user} setUser={setUser} />
         <Switch>
           <Route path="/home">
-              <AccountPage dataTable={dataTable}/>
+              <AccountPage dataTable={dataTable} goals={goals}/>
             
           </Route>
 

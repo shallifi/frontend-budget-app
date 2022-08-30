@@ -34,7 +34,9 @@ function GoalCard({goal}) {
     // console.log("goalCard", goal)
     const {name_of_goal, goal_amount,goal_payment} = goal
     // console.log(setAmount)
-    // console.log("after deconstr", goal_amount)
+    console.log("after deconstr", goal_amount)
+
+    // const totalGoals = 
 
   return (
     <>
