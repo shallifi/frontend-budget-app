@@ -19,10 +19,6 @@ function handleDelete(id){
     history.go()
   }
   
-
-
-  
-
   return  (<>
     <tr>
         {column.map((columnItem, index) =>{

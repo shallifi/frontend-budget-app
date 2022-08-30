@@ -3,22 +3,38 @@ import { Col, Container } from 'react-bootstrap';
 // import { Doughnut } from 'react-chartjs-2'
 import ExpForm from './additional comps/ExpForm';
 import Graph from './additional comps/Graph'
+import ListOfDebits from './additional comps/ListOfDebits';
 
 
 
 
 
 
-function Expenses() {
-    const [expenseType, setExpenseType] = useState();
 
-    useEffect(() => {
-        fetch('/expenditures')
-          .then((res) => res.json())
-          .then((data) => setExpenseType(data));
-      }, [setExpenseType]);
+function Expenses({user}) {
 
-    //   console.log("in expense", expenses)
+  const [userExpenditure, setUserExpenditure] = useState([]);
+  
+  useEffect(() => {
+    fetch('/user_expenditures')
+      .then((res) => res.json())
+      .then((data) => setUserExpenditure(data));
+  }, [setUserExpenditure]);
+
+  // console.log("expensesPage", userExpenditure)
+
+  // const {description, expense_amount} = userExpenditure
+  // console.log("ep after decon", description)
+
+  const descOfUserExp = userExpenditure.map(data => data.description)
+
+  // console.log("ep map try", descOfUserExp)
+
+  const renderListCard = userExpenditure.map((expenseObj) => (
+   <ListOfDebits key={expenseObj.id} expenseObj={expenseObj} /> 
+ )); 
+
+    if (!userExpenditure.length ) return <h1>...loading</h1>
   return (
     <>
     <Container>
@@ -26,16 +42,16 @@ function Expenses() {
        <Graph/>
         </Col>
         <Col>
-       <ExpForm expenseType={expenseType} setExpenseType={setExpenseType}/>
+       <ExpForm user={user}/>
         
+        {/* <ListOfDebits  userExpenditure={userExpenditure}/> */}
         </Col>
-
-    
         Expenses from expense component
-
+        
    
 
     </Container>
+    {renderListCard}
     
     </>
   )

@@ -27,7 +27,7 @@ function Bills() {
         <Stack direction="horizontal" gap="3" className="mb-4">
             <h1 className='me-auto'>Bills in stack</h1>
             <Button variant="primary" onClick={() => setShowAddBillModal(true)} > Add Bill</Button>
-            <Button variant="outline-primary"> unknown right now</Button>
+            {/* <Button variant="outline-primary"> unknown right now</Button> */}
 
         </Stack>
       </Container>

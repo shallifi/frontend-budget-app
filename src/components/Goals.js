@@ -13,17 +13,7 @@ function Goals({goals, setGoals, onDeleteGoals}) {
     const [showAddGoalModal, setShowAddGoalModal] = useState(false)
   
     
-    // const initialData={
-    //     name_of_goal:"",
-    //     goal_amount:""
-    // };
-    
-    // const {formData, setFormData, } = useForm(initialData)
-     //useEffect renders once per loading the page
-
-    //  const renderGoalCardAmount = goals.map((goal) => (
-    //     <div> {goal.goal_amount}</div> 
-    //   ));
+   
       const renderGoalCard = goals.map((goal) => (
         <GoalCard key={goal.id} goal={goal} /> 
       ));

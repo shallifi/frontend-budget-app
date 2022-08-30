@@ -72,8 +72,8 @@ function App() {
         <Navbar user={user} setUser={setUser} />
         <Switch>
           <Route path="/home">
-              <AccountPage />
-            <h1>Home Page</h1>
+              <AccountPage dataTable={dataTable}/>
+            
           </Route>
 
           <Route path="/bills">
@@ -95,7 +95,7 @@ function App() {
           </Route>
 
           <Route path="/expenses">
-              <Expenses  />
+              <Expenses user={user} />
             <h1> Expenses (from the App component) </h1>
           </Route>
 

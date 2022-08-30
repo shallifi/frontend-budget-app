@@ -1,28 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from '../../hooks/useForm';
+// import ListOfDebits from './ListOfDebits';
 
 
 
 
-function ExpForm({expenseType}) {
+
+function ExpForm({renderListCard, user}) {
+  
+
+  // const idRef = useRef("");
   
   const initialData={
-    user:"",
-    type_of_expense: "",
+    user_id:user.id,
+    expenditure_id: "",
     description: "",
     expense_amount:""   
   };
   const {formData, setFormData, handleChange} = useForm(initialData)
+  const [expenseType, setExpenseType] = useState([]);
   
 
   useEffect(() => {
-    fetch('/user_expenditures')
-      .then((res) => res.json())
-      .then((data) => setFormData(data));
-  }, [setFormData]);
-    
+      fetch('/expenditures')
+        .then((res) => res.json())
+        .then((data) => setExpenseType(data));
+    }, [setExpenseType]);
 
+    // console.log("in expense", expenseType)
+  
+
+    
 
 // handling post
  const handleSubmit = (e) => {
@@ -40,45 +49,47 @@ function ExpForm({expenseType}) {
       .then((resp) => resp.json())
       .then((newExpense) => {
           setFormData({
-            user:"",
-            type_of_expense: "",
+            user_id:"",
+            expenditure_id: "",
             description: "",
-            expense_amount:""
+            expense_amount:"" 
       });
     });
   
-    // history.go();
+    
   }
-  // expenses.map((edp) => console.log(edp))
 
-  // const mapForType = expenseType.map(toe => toe.type_of_expense)
+  // const newMap = expenseType.map((option) => option.id)
 
-console.log("expform",expenseType)
+
+  console.log("expform listcard", formData)
+
+
 
   return (
   
-    <div>
+    <>
         
        <h1>Transaction</h1>
        <Form onSubmit={handleSubmit}>
-    
-        <Form.Select name="type_of_expense" onChange={handleChange}>
-            <option value="food" defaultValue>food </option>
-            <option value="miscellanous" >miscellanous </option>
-            <option value="gasoline" >gasoline </option>
-            <option value="savings" >savings </option>
-            <option value="investments" >investments </option>
-        </Form.Select>
-        
-        {/* <Form.Select className="select" name="type_of_expense" onChange={handleChange}>
-          <option value="type_of_expense"> select a type</option>
-          {expenseType.map((option, index) => 
-            <option key={index} value={option.type_of_expense ??""}>
+        <Form.Select className="select" name="expenditure_id" onChange={handleChange}>
+          <option > select a type</option>
+          {expenseType.map((option) => 
+            <option key={(option.id)} value={option.id}>
               {option.type_of_expense}
             </option>
           )} 
-        </Form.Select>  */}
-        
+        </Form.Select> 
+
+        {/* <select className="select" name="expenditure_id" value={parseInt(formData.expenditure_id)} onChange={handleChange}>
+        <option > select a type</option>
+          {expenseType.map((option) => 
+            <option key={(option.id)} value={option.id}>
+              {option.type_of_expense}
+            </option>
+          )} 
+        </select>
+         */}
           <Form.Group className='mb-3' controlId="description">
                     <Form.Label>Description</Form.Label>
                     <Form.Control type="text"
@@ -96,17 +107,19 @@ console.log("expform",expenseType)
                     onChange={handleChange}
                     value={formData.expense_amount ??""}  required min={0} step={1.00}  />
                 </Form.Group>
+
         
         
         {/* <input type="number" value="expense_amount"placeholder='Amount spent$'></input> */}
         <Button variant='primary' type='submit'> add expense</Button>
 
         </Form>
-
-
+            list of Debits on ExpForm for list
+               {renderListCard}
+      
 
         
-        </div>
+        </>
   )
 }
 

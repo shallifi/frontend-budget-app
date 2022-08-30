@@ -1,5 +1,7 @@
 
 import React from 'react'
+import AccountPage from './AccountPage'
+// import AccountPage from './AccountPage'
 // import Bills from './Bills'
 // import EditBillModal from './EditBillModal'
 import TableRow from './TableRow'
@@ -9,6 +11,7 @@ import TableRow from './TableRow'
 
 
 function Table ({ dataTable, column})  {
+    
 
 // this map works but posts p tag
 //    const testingMap = dataTable.map((item,index) => <p key={item.id} item={item.min_payment}></p>)
@@ -26,7 +29,7 @@ const totalColumnPayoffAmount = payOffMap.reduce((acc, item) => (acc += item), 0
 const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
 
 
-    // console.log("table",);
+    console.log("table",totalColumnMinPayment);
 
 
 
@@ -46,6 +49,7 @@ const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
             <tr>Payment total = ${totalColumnPayment}</tr>
 
         </table>
+        {/* <AccountPage dataTable={dataTable}/> */}
 
         </>)
 }

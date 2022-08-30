@@ -39,7 +39,7 @@ function Graph({expenses, setExpenses}) {
             <canvas id="myChart"></canvas>
                 <Doughnut data={data}></Doughnut>
                 <h3 className='doughnut title'>Total
-                <span className='block text-3xl text-emerald-400'>${0}</span>
+                <span>${0}</span>
                 </h3>
             </div>
             <div className='flex flex-col py-10 gap-4'>

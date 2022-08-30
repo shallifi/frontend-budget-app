@@ -10,6 +10,7 @@ function GoalCard({goal}) {
   // const [amount, setAmount] = useState(0);
   const [showEditGoalModal, setshowEditGoalModal] = useState(false)
 
+  
   // const { id } = useParams();
   const history = useHistory();
 
@@ -30,9 +31,10 @@ function GoalCard({goal}) {
       history.go()
     }
     
+    // console.log("goalCard", goal)
     const {name_of_goal, goal_amount,goal_payment} = goal
     // console.log(setAmount)
-    // console.log(id)
+    // console.log("after deconstr", goal_amount)
 
   return (
     <>
