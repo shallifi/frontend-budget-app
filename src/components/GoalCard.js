@@ -41,7 +41,7 @@ function GoalCard({goal,user}) {
 
   return (
     <>
-    <Card>
+    <Card className='mb-3'>
         <Card.Body>
             <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal '>
               {/* {JSON.stringify(name_of_goal)}

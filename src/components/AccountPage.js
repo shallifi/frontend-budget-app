@@ -68,7 +68,7 @@ function getProgressBarVariant(amount,max) {
 
   return (
     <>
-      <header className="header_AccPage">Main page for budget</header>
+      <header className="header_AccPage">Welcome to the Treasure Room</header>
         <Container>
         <div className=''>
       <div className='item'>
@@ -143,7 +143,7 @@ function getProgressBarVariant(amount,max) {
             </Card.Title>
           </Card.Body>
     </Card>
-    <Card>
+    <Card className='mb-4'>
         <Card.Body>
             <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal'>
                

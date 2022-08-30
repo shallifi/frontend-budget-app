@@ -35,6 +35,7 @@ function Expenses({user, userExpenditure}) {
  )); 
 
     if (!userExpenditure.length ) return <h1>...loading</h1>
+    
   return (
     <>
     <Container>
