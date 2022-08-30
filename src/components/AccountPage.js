@@ -76,7 +76,7 @@ function getProgressBarVariant(amount,max) {
           <canvas id="myChart"></canvas>
               <Doughnut data={data}></Doughnut>
               <h3 className='doughnut title'>Total
-              <span>${0}</span>
+              <span>${budgetTotal}</span>
               </h3>
           </div>
           <div className='flex flex-col py-10 gap-4'>
@@ -135,7 +135,7 @@ function getProgressBarVariant(amount,max) {
         <Card.Body>
             <Card.Title className='d-flex justify-content-between align-items-baseline fw-normal'>
             
-              <div className='me-2'> Expenses coming soon </div>
+              <div className='me-2'> Total Expenses </div>
                           
               <div className='d-flex align-items-baseline'>{currencyFormatter.format(expenseTotal)} 
               {/* <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format("")} </span> */}

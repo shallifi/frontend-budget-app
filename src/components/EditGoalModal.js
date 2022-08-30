@@ -8,10 +8,11 @@ import { useForm } from '../hooks/useForm';
 
 
 
-function EditGoalModal({goal, show, handleClose}) {
+function EditGoalModal({user,goal, show, handleClose}) {
     
   // console.log("inside goalmodal", goal);
     const initialData={
+        // user_id:user.id,
         name_of_goal:goal["name_of_goal"],
         goal_payment:goal.goal_payment,
         goal_amount:goal.goal_amount
@@ -39,6 +40,7 @@ function EditGoalModal({goal, show, handleClose}) {
         .then((resp) => resp.json())
         .then((editGoal) => {
             setFormData({
+            user_id:"",
             name_of_goal:"",
             goal_amount: "",
             goal_payment:""
