@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import AccountPage from "./components/AccountPage";
 import Bills from "./components/Bills";
 // import { Table } from "react-bootstrap";
-import Table from "./components/Table";
+import TableSheet from "./components/TableSheet";
 import Expenses from "./components/Expenses";
 
 
@@ -75,7 +75,7 @@ function App() {
 
           <Route path="/bills">
               <Bills />
-              <Table  dataTable={dataTable} setDataTable={setDataTable} column={column} />
+              <TableSheet  dataTable={dataTable} setDataTable={setDataTable} column={column} />
               {/* put this on line above if using bills={bills} setBills={setBills} */}
          
             

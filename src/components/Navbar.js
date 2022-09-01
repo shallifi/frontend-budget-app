@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 
 
@@ -26,7 +27,7 @@ const history = useHistory();
       </div>
       <div>
         {user ? (
-          <button onClick={handleLogoutClick}>Logout</button>
+          <Button onClick={handleLogoutClick}>Logout</Button>
         ) : (
           <>
             {/* <Link to="/goals">Goals</Link> */}

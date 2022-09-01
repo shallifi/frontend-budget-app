@@ -75,8 +75,8 @@ function getProgressBarVariant(amount,max) {
           <div >
           <canvas id="myChart"></canvas>
               <Doughnut data={data}></Doughnut>
-              <h3 className='doughnut title'>Total
-              <span>${budgetTotal}</span>
+              <h3 className='doughnut_title'>Total Monthly Budget
+              {/* <span>${budgetTotal}</span> */}
               </h3>
           </div>
           <div className='flex flex-col py-10 gap-4'>

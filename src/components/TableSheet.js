@@ -1,13 +1,13 @@
 
 import React from 'react'
-
+import Table  from 'react-bootstrap/Table'
 import TableRow from './TableRow'
-// import { Table } from "react-bootstrap";
 
 
 
 
-function Table ({ dataTable, column})  {
+
+function TableSheet ({ dataTable, column})  {
     
 
 // this map works but posts p tag
@@ -32,7 +32,7 @@ const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
 
     return(
         <>
-        <table>
+        <Table striped bordered hover>
             <thead>
                 <tr>
                     {column.map((item,index) => <TableHeadItem item={item} />)}
@@ -45,24 +45,13 @@ const totalColumnPayment = paymentMap.reduce((acc, item) => (acc += item), 0);
             <tr>Payoff Amount total = ${totalColumnPayoffAmount}</tr>
             <tr>Payment total = ${totalColumnPayment}</tr>
 
-        </table>
+        </Table>
         {/* <AccountPage dataTable={dataTable}/> */}
 
         </>)
 }
 
 const TableHeadItem = ({ item }) => <th>{item.heading}</th>
-// const TableRow = ({ item, column}) => (
-//     <>
-//     <tr>
-//         {column.map((columnItem, index) =>{
-//             return <td>{item[`${columnItem.value}`]}</td>
-//         })}
-//             <button className='me-2'onClick={() => setShowEditBillModal(bill.id)}>Edit</button>
-//             <button className='me-2' onClick={()=>handleDelete(bill.id)} >Delete</button>
-//     </tr>
-//     <EditBillModal item={item}/>
-//     </>
-// )
 
-export default Table
+
+export default TableSheet

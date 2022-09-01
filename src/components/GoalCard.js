@@ -48,10 +48,10 @@ function GoalCard({goal,user}) {
               {JSON.stringify(goal_amount)} */}
             <div className='me-2'> {name_of_goal} </div>
                         
-            <div className='d-flex align-items-baseline m3-2'> 
+            <div className='d-flex align-items-baseline me-2'> 
             {currencyFormatter.format(goal_payment)} 
-            <span className='text-muted fs-6 ms-1'>/ {currencyFormatter.format(goal_amount)} </span>
-            <Button className='me-2'onClick={() => setshowEditGoalModal(goal.id)}>Edit</Button>
+            <span className='text-muted fs-6 mr-1'>/ {currencyFormatter.format(goal_amount)} </span>
+            <Button className='m-2'onClick={() => setshowEditGoalModal(goal.id)}>Edit</Button>
             <Button className='me-2' onClick={()=>handleDelete(goal.id)} >Delete</Button>
             </div>
    
